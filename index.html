@@ -851,23 +851,16 @@
         });
 
         // Contact functions
+
         function downloadResume() {
-            // Укажите здесь ссылку на PDF файл резюме
-            const resumeUrl = 'УКАЖИТЕ_ССЫЛКУ_НА_PDF_РЕЗЮМЕ_ЗДЕСЬ';
-            
-            if (resumeUrl === 'УКАЖИТЕ_ССЫЛКУ_НА_PDF_РЕЗЮМЕ_ЗДЕСЬ') {
-                alert('Пожалуйста, укажите ссылку на PDF файл резюме в коде.');
-                return;
-            }
-            
             const link = document.createElement('a');
-            link.href = resumeUrl;
-            link.download = 'Константин_Попов_Резюме.pdf';
+            link.href = 'PopovKA.pdf'; // Относительный путь к файлу в корне репозитория
+            link.download = 'PopovKA.pdf'; // Имя файла при скачивании
             document.body.appendChild(link);
             link.click();
-            document.body.removeChild(link);
+            document.body.removeChild(link); // Удаляем ссылку после клика
         }
-
+            
         function openTelegram() {
             window.open('https://t.me/Kost_Pop', '_blank');
         }
