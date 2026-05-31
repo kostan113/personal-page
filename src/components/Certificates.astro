@@ -28,6 +28,7 @@ import { certificates, education } from '../data/certificates';
           <div class="cert-info">
             <div class="cert-issuer">{cert.issuer}</div>
             <div class="cert-title">{cert.title}</div>
+            {cert.year && <div class="cert-year">{cert.year}</div>}
             {cert.verifyUrl && (
               <a
                 href={cert.verifyUrl}
@@ -114,6 +115,13 @@ import { certificates, education } from '../data/certificates';
   .cert-desc {
     font-size: var(--text-sm);
     color: var(--c-text-secondary);
+  }
+
+  .cert-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    margin-bottom: 0.3rem;
   }
 
   .cert-verify {
