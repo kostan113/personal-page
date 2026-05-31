@@ -1,0 +1,130 @@
+---
+---
+
+<section class="section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <p class="section-label">Чем занимаюсь</p>
+    <h2 class="section-title" id="about-heading">
+      Управление сложными проектами<br class="desktop-break" /> автоматизации
+    </h2>
+    <p class="section-subtitle">
+      Специализируюсь на внедрении производственных систем там, где стандартные подходы не работают.
+    </p>
+
+    <div class="about-grid">
+
+      <div class="about-card card">
+        <div class="about-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Автоматизация производства</h3>
+        <p>Полный цикл внедрения: от обследования и постановки ТЗ до запуска в эксплуатацию. Производственный учёт, маркировка, ТСД, складские системы.</p>
+      </div>
+
+      <div class="about-card card">
+        <div class="about-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+        </div>
+        <h3>Интеграции систем</h3>
+        <p>Связываю разрозненные системы в единый контур. Работа со специализированным оборудованием, API-интеграции, выстраивание потоков данных между системами.</p>
+      </div>
+
+      <div class="about-card card">
+        <div class="about-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Восстановление управляемости</h3>
+        <p>Вхожу в проекты, которые потеряли прозрачность или вышли из-под контроля. Аудит состояния, перестройка процессов, восстановление доверия заказчика.</p>
+      </div>
+
+      <div class="about-card card">
+        <div class="about-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Управление командой</h3>
+        <p>Одновременное ведение до 6 проектов, 20–30 активных задач в параллели. Координация команд внедрения, работа с заказчиком на всех уровнях иерархии.</p>
+      </div>
+
+    </div>
+
+    <div class="about-note">
+      <div class="note-line"></div>
+      <p>
+        Работаю с заказчиками напрямую: понимаю производственную специфику, говорю на языке бизнеса и технарей одновременно. 
+        Образование инженера-механика (МГТУ им. Баумана) даёт понимание производственных процессов изнутри.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .about-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-accent-dim);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: var(--radius-md);
+    color: var(--c-accent-light);
+    flex-shrink: 0;
+  }
+
+  .about-card h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--c-text-primary);
+  }
+
+  .about-card p {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    line-height: 1.65;
+  }
+
+  .about-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--c-bg-subtle);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .note-line {
+    width: 3px;
+    min-height: 100%;
+    background: var(--c-accent);
+    border-radius: 3px;
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+
+  .about-note p {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    line-height: 1.7;
+  }
+
+  .desktop-break { display: none; }
+
+  @media (min-width: 600px) {
+    .desktop-break { display: inline; }
+  }
+</style>

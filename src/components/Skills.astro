@@ -1,0 +1,72 @@
+---
+import { skillGroups } from '../data/skills';
+---
+
+<section class="section" id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <p class="section-label">Навыки</p>
+    <h2 class="section-title" id="skills-heading">Компетенции</h2>
+    <p class="section-subtitle">Только реальные, подтверждённые проектным опытом навыки.</p>
+
+    <div class="skills-grid">
+      {skillGroups.map((group) => (
+        <div class="skill-group card">
+          <h3 class="skill-group-title">{group.category}</h3>
+          <ul class="skill-list" role="list">
+            {group.skills.map((skill) => (
+              <li class="skill-item">
+                <svg class="skill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-group-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--c-accent-light);
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-item {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .skill-check {
+    color: var(--c-success);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+</style>

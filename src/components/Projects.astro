@@ -1,0 +1,167 @@
+---
+import { projects } from '../data/projects';
+---
+
+<section class="section" id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <p class="section-label">Ключевые проекты</p>
+    <h2 class="section-title" id="projects-heading">Реализованные проекты</h2>
+    <p class="section-subtitle">Только подтверждённые данные. Детали проектов обсуждаются при встрече.</p>
+
+    <div class="projects-list">
+      {projects.map((project) => (
+        <article class={`project-card card ${project.highlight ? 'project-card--highlight' : ''}`} aria-label={project.title}>
+          <div class="project-head">
+            <div>
+              <h3 class="project-title">{project.title}</h3>
+              <p class="project-subtitle">{project.subtitle}</p>
+            </div>
+            {project.geography && (
+              <div class="project-geo tag">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 0 0-8-8z"/></svg>
+                {project.geography}
+              </div>
+            )}
+          </div>
+
+          <div class="project-body">
+            <div class="project-col">
+              <p class="col-label">Контур проекта</p>
+              <ul class="scope-list" role="list">
+                {project.scope.map((item) => (
+                  <li>
+                    <span class="scope-dot" aria-hidden="true">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="project-col">
+              <p class="col-label">Результаты</p>
+              <ul class="outcomes-list" role="list">
+                {project.outcomes.map((item) => (
+                  <li>
+                    <svg class="outcome-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {project.budget && (
+                <div class="project-budget tag tag--accent">{project.budget}</div>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    transition: border-color var(--dur-normal) var(--ease-out),
+                box-shadow var(--dur-normal) var(--ease-out);
+  }
+
+  .project-card--highlight {
+    border-color: rgba(59,130,246,0.2);
+  }
+
+  .project-card--highlight:hover {
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 0 0 1px rgba(59,130,246,0.1), 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .project-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.35;
+  }
+
+  .project-subtitle {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+  }
+
+  .project-geo {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .project-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--c-text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .scope-list, .outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .scope-list li, .outcomes-list li {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .scope-dot {
+    color: var(--c-text-muted);
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+  }
+
+  .outcome-icon {
+    color: var(--c-success);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .project-budget {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .project-body {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .project-head {
+      flex-direction: column;
+    }
+  }
+</style>

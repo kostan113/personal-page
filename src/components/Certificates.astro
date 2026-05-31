@@ -1,0 +1,133 @@
+---
+import { certificates, education } from '../data/certificates';
+---
+
+<section class="section" id="certificates" aria-labelledby="cert-heading">
+  <div class="container">
+    <p class="section-label">Сертификаты</p>
+    <h2 class="section-title" id="cert-heading">Образование и сертификации</h2>
+
+    <div class="cert-layout">
+
+      <div class="cert-edu card">
+        <div class="cert-edu-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div>
+          <div class="cert-issuer">Высшее образование</div>
+          <div class="cert-title">{education.university}</div>
+          <div class="cert-desc">{education.faculty}</div>
+        </div>
+      </div>
+
+      {certificates.map((cert) => (
+        <div class="cert-card card">
+          <div class="cert-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-issuer">{cert.issuer}</div>
+            <div class="cert-title">{cert.title}</div>
+            {cert.verifyUrl && (
+              <a
+                href={cert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cert-verify"
+                aria-label={`Проверить сертификат: ${cert.title}`}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                {cert.verifyLabel}
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .cert-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .cert-edu {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-color: rgba(59,130,246,0.15);
+  }
+
+  .cert-edu-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-accent-dim);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: var(--radius-md);
+    color: var(--c-accent-light);
+    flex-shrink: 0;
+  }
+
+  .cert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cert-badge {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-bg-subtle);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    color: var(--c-warning);
+    flex-shrink: 0;
+  }
+
+  .cert-issuer {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .cert-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--c-text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .cert-desc {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+  }
+
+  .cert-verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-xs);
+    color: var(--c-accent);
+    transition: color var(--dur-fast);
+    font-family: var(--font-mono);
+  }
+
+  .cert-verify:hover {
+    color: var(--c-accent-light);
+    text-decoration: underline;
+  }
+</style>

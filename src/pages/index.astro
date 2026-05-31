@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Metrics from '../components/Metrics.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Skills from '../components/Skills.astro';
+import Certificates from '../components/Certificates.astro';
+import Resume from '../components/Resume.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Константин Попов — Senior Project Manager | Автоматизация, Внедрения, Производство";
+const description = "Senior Project Manager с 6+ летним опытом управления проектами автоматизации и внедрения производственных систем. Проекты до 30+ млн ₽. РФ / РБ / ОАЭ.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle="Константин Попов — Senior Project Manager"
+  ogDescription="Управление сложными проектами автоматизации, внедрений и интеграций производственных систем. 6+ лет опыта, международные проекты."
+>
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <Metrics />
+    <About />
+    <Projects />
+    <Experience />
+    <Skills />
+    <Certificates />
+    <Resume />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--c-accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    z-index: 1000;
+    transition: top var(--dur-fast);
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+</style>

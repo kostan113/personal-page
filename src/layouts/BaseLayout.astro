@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  canonicalUrl = 'https://kostpop.github.io/'
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Константин Попов",
+  "jobTitle": "Senior Project Manager",
+  "description": "Senior Project Manager — автоматизация, внедрения, интеграции, производственные системы. 6+ лет опыта, проекты до 30+ млн ₽, РФ / РБ / ОАЭ.",
+  "url": "https://kostpop.github.io/",
+  "email": "kocty13@yandex.ru",
+  "telephone": "+79853094805",
+  "sameAs": [
+    "https://t.me/Kost_Pop"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "МГТУ им. Н.Э. Баумана"
+  },
+  "knowsAbout": [
+    "Project Management",
+    "Business Automation",
+    "System Integration",
+    "Manufacturing Systems",
+    "1C Implementation"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "1С: Руководитель проекта",
+      "credentialCategory": "Professional Certificate"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "1С: Консалтинг. Основы менеджмента",
+      "credentialCategory": "Professional Certificate"
+    }
+  ],
+  "workLocation": {
+    "@type": "Place",
+    "name": "РФ / РБ / ОАЭ"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary Meta -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Константин Попов" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="keywords" content="Константин Попов, Senior Project Manager, руководитель проекта, автоматизация, внедрение 1С, производственные системы, интеграции" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={ogTitle || title} />
+  <meta property="og:description" content={ogDescription || description} />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Константин Попов — Senior Project Manager" />
+  <meta property="profile:first_name" content="Константин" />
+  <meta property="profile:last_name" content="Попов" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={ogTitle || title} />
+  <meta name="twitter:description" content={ogDescription || description} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Fonts preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

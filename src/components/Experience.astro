@@ -1,0 +1,193 @@
+---
+---
+
+<section class="section" id="experience" aria-labelledby="exp-heading">
+  <div class="container">
+    <p class="section-label">Опыт</p>
+    <h2 class="section-title" id="exp-heading">6+ лет в управлении проектами</h2>
+    <p class="section-subtitle">Специализация — производственные системы, автоматизация, внедрения.</p>
+
+    <div class="exp-track">
+
+      <div class="exp-item">
+        <div class="exp-marker" aria-hidden="true">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+        </div>
+        <div class="exp-content card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Senior Project Manager</h3>
+              <p class="exp-company">Проекты автоматизации и внедрения</p>
+            </div>
+            <div class="exp-period tag">
+              6+ лет
+            </div>
+          </div>
+          <ul class="exp-points" role="list">
+            <li>Ведение до 6 проектов одновременно с суммарным бюджетом до 30+ млн ₽</li>
+            <li>Международные проекты: РФ, Республика Беларусь, ОАЭ</li>
+            <li>Полный цикл: обследование → ТЗ → разработка → внедрение → сопровождение</li>
+            <li>Управление командами внедрения, работа с заказчиком на уровне собственников и IT-директоров</li>
+            <li>5000+ часов на крупнейшем производственном проекте</li>
+            <li>90% оплачиваемых задач после оптимизации процессов в одном из проектов</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Производство</span>
+            <span class="tag">Автоматизация</span>
+            <span class="tag">1С</span>
+            <span class="tag">Интеграции</span>
+            <span class="tag">ТСД</span>
+            <span class="tag">Маркировка</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-marker" aria-hidden="true">
+          <div class="exp-dot exp-dot--edu"></div>
+        </div>
+        <div class="exp-content card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">МГТУ им. Н.Э. Баумана</h3>
+              <p class="exp-company">Специальное машиностроение</p>
+            </div>
+            <div class="exp-period tag">
+              Образование
+            </div>
+          </div>
+          <p class="exp-note">
+            Инженерное образование обеспечивает понимание производственных процессов на техническом уровне — 
+            критически важно при управлении проектами автоматизации реального производства.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1.25rem;
+    position: relative;
+  }
+
+  .exp-item + .exp-item {
+    margin-top: 1.25rem;
+  }
+
+  .exp-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.75rem;
+  }
+
+  .exp-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--c-accent);
+    border: 2px solid var(--c-bg);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .exp-dot--edu {
+    background: var(--c-text-muted);
+    box-shadow: 0 0 0 3px rgba(79,90,102,0.2);
+  }
+
+  .exp-line {
+    flex: 1;
+    width: 1px;
+    background: var(--c-border);
+    margin-top: 6px;
+  }
+
+  .exp-content {
+    flex: 1;
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .exp-role {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-company {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+  }
+
+  .exp-period {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .exp-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .exp-points li {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .exp-points li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--c-text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .exp-note {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .exp-item {
+      grid-template-columns: 20px 1fr;
+      gap: 0.75rem;
+    }
+    .exp-header {
+      flex-direction: column;
+    }
+  }
+</style>

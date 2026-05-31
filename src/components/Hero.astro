@@ -1,0 +1,183 @@
+---
+---
+
+<section class="hero section" id="hero" aria-label="Главная секция">
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-badge animate-fade-up" style="animation-delay:0.05s">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="text-mono" style="font-size:var(--text-xs);color:var(--c-text-secondary)">Открыт к предложениям</span>
+      </div>
+
+      <h1 class="hero-name animate-fade-up" style="animation-delay:0.1s">
+        Константин<br />Попов
+      </h1>
+
+      <p class="hero-title animate-fade-up" style="animation-delay:0.18s">
+        Senior Project Manager
+      </p>
+
+      <p class="hero-tagline animate-fade-up" style="animation-delay:0.24s">
+        Автоматизация&nbsp;•&nbsp;Внедрения&nbsp;•&nbsp;Интеграции&nbsp;•&nbsp;Производственные&nbsp;системы
+      </p>
+
+      <p class="hero-description animate-fade-up" style="animation-delay:0.32s">
+        Управляю сложными проектами автоматизации и внедрения на производственных предприятиях. 
+        6+ лет опыта, проекты до 30+ млн ₽, реализация в РФ, РБ и ОАЭ.
+      </p>
+
+      <div class="hero-actions animate-fade-up" style="animation-delay:0.4s">
+        <a href="#contact" class="btn btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Связаться
+        </a>
+        <a href="#projects" class="btn btn--outline">
+          Посмотреть проекты
+        </a>
+      </div>
+
+      <div class="hero-geo animate-fade-up" style="animation-delay:0.46s">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 0 0-8-8z"/></svg>
+        <span>РФ / РБ / ОАЭ</span>
+      </div>
+
+    </div>
+
+    <div class="hero-decoration" aria-hidden="true">
+      <div class="deco-grid"></div>
+      <div class="deco-circle"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: clamp(500px, 80vh, 800px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: clamp(3rem, 8vh, 6rem);
+    padding-bottom: clamp(3rem, 8vh, 6rem);
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: 100px;
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--c-success);
+    border-radius: 50%;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--c-text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-mono);
+    font-size: clamp(var(--text-sm), 2vw, var(--text-base));
+    font-weight: 500;
+    color: var(--c-accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-tagline {
+    font-size: clamp(var(--text-sm), 2.5vw, var(--text-lg));
+    color: var(--c-text-secondary);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-description {
+    font-size: var(--text-base);
+    color: var(--c-text-secondary);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-geo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Decoration */
+  .hero-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .deco-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--c-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--c-border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 20%, transparent 70%);
+    opacity: 0.4;
+  }
+
+  .deco-circle {
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%);
+    width: clamp(200px, 35vw, 420px);
+    aspect-ratio: 1;
+    border: 1px solid var(--c-border);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 40px rgba(59,130,246,0.02),
+      0 0 0 80px rgba(59,130,246,0.015);
+  }
+
+  @media (max-width: 700px) {
+    .hero-decoration { width: 100%; opacity: 0.3; }
+    .hero-inner { max-width: 100%; }
+  }
+</style>

@@ -1,0 +1,215 @@
+---
+---
+
+<header class="site-header" id="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="/" class="header-logo" aria-label="Константин Попов — на главную">
+      <span class="logo-name">Константин Попов</span>
+      <span class="logo-role">Senior PM</span>
+    </a>
+
+    <nav class="header-nav" aria-label="Основная навигация">
+      <ul role="list">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#skills">Навыки</a></li>
+        <li><a href="#certificates">Сертификаты</a></li>
+        <li><a href="#contact" class="nav-cta">Связаться</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu-btn" id="menuToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Мобильное меню" hidden>
+    <nav>
+      <ul role="list">
+        <li><a href="#about" class="mobile-link">Обо мне</a></li>
+        <li><a href="#metrics" class="mobile-link">Показатели</a></li>
+        <li><a href="#projects" class="mobile-link">Проекты</a></li>
+        <li><a href="#skills" class="mobile-link">Навыки</a></li>
+        <li><a href="#certificates" class="mobile-link">Сертификаты</a></li>
+        <li><a href="#contact" class="mobile-link mobile-link--cta">Связаться</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menuToggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const header = document.getElementById('site-header')!;
+
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.hidden;
+    menu.hidden = isOpen;
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.classList.toggle('is-open', !isOpen);
+  });
+
+  // Close menu on link click
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('is-open');
+    });
+  });
+
+  // Sticky header scroll state
+  const observer = new IntersectionObserver(
+    ([e]) => header.classList.toggle('is-scrolled', !e.isIntersecting),
+    { rootMargin: '-1px 0px 0px 0px', threshold: [1] }
+  );
+  const sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:100%;pointer-events:none';
+  document.body.prepend(sentinel);
+  observer.observe(sentinel);
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12, 14, 17, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+
+  .site-header.is-scrolled {
+    background: rgba(12, 14, 17, 0.95);
+    border-bottom-color: var(--c-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 2rem;
+  }
+
+  .header-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 1;
+    transition: opacity var(--dur-fast);
+  }
+
+  .header-logo:hover { opacity: 0.75; }
+
+  .logo-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--c-text-primary);
+  }
+
+  .logo-role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--c-accent);
+    letter-spacing: 0.1em;
+  }
+
+  .header-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .header-nav a {
+    font-size: var(--text-sm);
+    color: var(--c-text-secondary);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: color var(--dur-fast), background var(--dur-fast);
+  }
+
+  .header-nav a:hover {
+    color: var(--c-text-primary);
+    background: var(--c-bg-subtle);
+  }
+
+  .nav-cta {
+    color: var(--c-accent-light) !important;
+    border: 1px solid rgba(59,130,246,0.3) !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--c-accent-dim) !important;
+    border-color: var(--c-accent) !important;
+  }
+
+  /* Mobile toggle */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+    width: 32px;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    height: 2px;
+    background: var(--c-text-secondary);
+    border-radius: 2px;
+    transition: all var(--dur-normal) var(--ease-out);
+  }
+
+  .mobile-menu-btn.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-menu-btn.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    background: var(--c-bg-card);
+    border-bottom: 1px solid var(--c-border);
+    padding: 1rem var(--container-pad);
+  }
+
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+    color: var(--c-text-secondary);
+    border-radius: var(--radius-md);
+    transition: all var(--dur-fast);
+  }
+
+  .mobile-link:hover,
+  .mobile-link:focus-visible {
+    color: var(--c-text-primary);
+    background: var(--c-bg-subtle);
+  }
+
+  .mobile-link--cta {
+    margin-top: 0.5rem;
+    color: var(--c-accent-light);
+    border: 1px solid rgba(59,130,246,0.25);
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .header-nav { display: none; }
+    .mobile-menu-btn { display: flex; }
+  }
+</style>
