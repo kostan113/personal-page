@@ -51,14 +51,14 @@ import photoSrc from '../../public/photo.jpg';
       <!-- RIGHT: фото -->
       <div class="hero-photo-wrap animate-fade-in" style="animation-delay:0.15s">
         <img
-          src={photoSrc}
-          alt="Константин Попов — Senior Project Manager"
-          class="hero-photo"
-          width="600"
-          height="800"
-          loading="eager"
-          decoding="async"
-        />
+  src={`${import.meta.env.BASE_URL}photo.jpg`}
+  alt="Константин Попов — Senior Project Manager"
+  class="hero-photo"
+  width="520"
+  height="600"
+  loading="eager"
+  decoding="async"
+/>
         <div class="photo-overlay"></div>
       </div>
 
