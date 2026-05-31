@@ -1,4 +1,5 @@
 ---
+import photoSrc from '../../public/photo.jpg';
 ---
 
 <section class="hero section" id="hero" aria-label="Главная секция">
@@ -48,13 +49,13 @@
       </div>
 
       <!-- RIGHT: фото -->
-      <div class="hero-photo-wrap animate-fade-in" style="animation-delay:0.15s" aria-hidden="true">
+      <div class="hero-photo-wrap animate-fade-in" style="animation-delay:0.15s">
         <img
-          src="/photo.jpg"
+          src={photoSrc}
           alt="Константин Попов — Senior Project Manager"
           class="hero-photo"
-          width="520"
-          height="600"
+          width="600"
+          height="800"
           loading="eager"
           decoding="async"
         />
@@ -172,10 +173,8 @@
     object-fit: cover;
     object-position: center top;
     display: block;
-    filter: grayscale(15%);
   }
 
-  /* fade to bg at bottom */
   .photo-overlay {
     position: absolute;
     bottom: 0;
