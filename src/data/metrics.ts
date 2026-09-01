@@ -44,7 +44,7 @@ export const metrics: Metric[] = [
   value: "turnaround",
   label: "кризисного AI-проекта",
   description: "принял проект на 3-м релизе и довёл до успешной приёмки"
-}
+},
   {
     value: "RICE / MoSCoW",
     label: "DoR / DoD",
